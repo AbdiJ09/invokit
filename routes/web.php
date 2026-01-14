@@ -8,6 +8,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+// Temporary migration route
+Route::get('/migrate-db-force', function () {
+    \Illuminate\Support\Facades\Artisan::call('migrate --force');
+    return 'Migration completed: ' . \Illuminate\Support\Facades\Artisan::output();
+});
+
 // Landing page
 Route::get('/', function () {
     if (auth()->check()) {
