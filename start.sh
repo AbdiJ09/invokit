@@ -14,5 +14,6 @@ php artisan migrate --force
 # php artisan db:seed --force
 
 # Start application
-echo "🔥 Starting server on port $PORT..."
-php artisan serve --host=0.0.0.0 --port=$PORT
+PORT_NUM=${PORT:-8080}
+echo "🔥 Starting server on port $PORT_NUM..."
+exec php artisan serve --host=0.0.0.0 --port="$PORT_NUM"
